@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pokemons</title>
+</head>
+<body>
+<div th:replace="~{fragments :: menu}"></div>
+
+    <h1> Lista de Pokemons</h1>
+
+<table border ="1">
+    <thead>
+    <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Tipos</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="pokemon : ${pokemons}">
+            <td>
+                <img th:src = "${pokemon.sprites.front_default}" alt="Pokémon" width="80">
+            </td>
+            <td>
+                <a      th:href="@{/pokemons/{id}(id=${pokemon.id})}"
+                        th:text = "${pokemon.name}">Nombre</a>
+            </td>
+
+            <td>
+    <span th:each="tipo : ${pokemon.types}">
+        <span th:if="${tipo == 'fire'}"
+              th:text="${tipo}"
+              style="background-color: #ff6b6b; color: white; padding: 2px 6px; border-radius: 4px; margin-right: 4px;"></span>
+
+        <span th:if="${tipo == 'water'}"
+              th:text="${tipo}"
+              style="background-color: #4dabf7; color: white; padding: 2px 6px; border-radius: 4px; margin-right: 4px;"></span>
+
+        <span th:if="${tipo == 'grass'}"
+              th:text="${tipo}"
+              style="background-color: #69db7c; color: white; padding: 2px 6px; border-radius: 4px; margin-right: 4px;"></span>
+
+        <span th:if="${tipo == 'electric'}"
+              th:text="${tipo}"
+              style="background-color: #ffd43b; color: black; padding: 2px 6px; border-radius: 4px; margin-right: 4px;"></span>
+
+        <span th:if="${tipo == 'poison'}"
+              th:text="${tipo}"
+              style="background-color: #cc5de8; color: white; padding: 2px 6px; border-radius: 4px; margin-right: 4px;"></span>
+
+        <span th:if="${tipo == 'flying'}"
+              th:text="${tipo}"
+              style="background-color: #a5d8ff; color: black; padding: 2px 6px; border-radius: 4px; margin-right: 4px;"></span>
+    </span>
+            </td>
+        </tr>
+    </tbody>
+
+
+</table>
+<div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>

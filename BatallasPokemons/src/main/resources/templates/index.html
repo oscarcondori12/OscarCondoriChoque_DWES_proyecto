@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Batallas pokémon</title>
+</head>
+<body>
+    <h1>Batallas pokémon</h1>
+    <p>Bienvenido. Introduce tu nombre de entrenador para continuar</p>
+    <div style="display: flex; align-items: center; gap: 30px">
+        <div>
+    <form th:action = "@{/}" method="post">
+        <label for="nombre">Nombre del entrenador: </label>
+        <input type="text" id="nombre" name="nombre" required>
+        <button type="submit">Continuar</button>
+    </form>
+    <p th:if="${error}" th:text="${error}" style="color: red;"></p>
+    </div>
+        <img src="/images/pokemonicono.png" alt="Pokéball" width="180">
+    </div>
+    <div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>
