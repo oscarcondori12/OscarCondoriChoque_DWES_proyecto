@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+
+
+<div th:fragment="menu">
+    <nav>
+        <a th:href="@{/}">Inicio</a>
+
+        <a th:href="@{/pokemons}">Listado de Pokémon</a>
+    </nav>
+    <hr>
+</div>
+
+
+<div th:fragment="footer">
+    <hr>
+    <footer>
+        <p>
+            Batallas Pokémon -
+            Óscar Condori Choque -
+            <span th:text="${#dates.year(#dates.createNow())}"></span>
+        </p>
+    </footer>
+</div>
+
+</body>
+</html>

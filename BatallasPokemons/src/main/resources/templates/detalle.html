@@ -1,0 +1,40 @@
+<!doctype html>
+<html   lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalles del Pokémon</title>
+</head>
+<body>
+<div th:replace="~{fragments :: menu}"></div>
+
+<h1>Detalles del Pokémon</h1>
+
+<h2 th:text="${pokemon.name}">Nombre</h2>
+<img th:src="${pokemon.sprites.front_default}" alt="Pokémon" width="150">
+
+<table border="1">
+    <tr>
+        <td>Altura</td>
+        <td th:text="${pokemon.height}">0</td>
+    </tr>
+    <tr>
+        <td>Peso</td>
+        <td th:text="${pokemon.weight}">0</td>
+    </tr>
+
+    <tr>
+        <td>Categoria</td>
+    <td>
+        <span th:if="${pokemon.weight < 100}">Ligero</span>
+        <span th:if = "${pokemon.weight >= 100 and pokemon.weight <=500 }">Normal</span>
+        <span th:if = "${pokemon.weight > 500}">Pesado</span>
+    </td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/pokemons}">Volver al listado</a>
+<div th:replace="~{fragments :: footer}"></div>
+</body>
+</html>
